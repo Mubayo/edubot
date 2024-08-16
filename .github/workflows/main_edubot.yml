@@ -26,6 +26,9 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+
+      - name: Install libxml2 and libxslt 
+        run: brew install libxml2 libxslt  
       
       - name: Install dependencies
         run: pip install -r requirements.txt
