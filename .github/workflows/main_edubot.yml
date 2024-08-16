@@ -39,6 +39,7 @@ jobs:
           pip install rpy2
           export PATH=$PATH:/usr/local/bin/R
           export LDFLAGS="-Wl,-rpath,~/lib64/R/lib"
+          pip install wheel
       
       - name: Install dependencies
         run: pip install -r requirements.txt
