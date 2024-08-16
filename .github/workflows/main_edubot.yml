@@ -32,6 +32,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install libxml2-dev libxslt1-dev
           sudo apt-get install python-setuptools
+          sudo apt-get install r-base
+          export PATH=$PATH:/usr/local/bin/R
+          source ~/.bashrc
+          export R_HOME=$(R RHOME)
+          pip install rpy2
       
       - name: Install dependencies
         run: pip install -r requirements.txt
