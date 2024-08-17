@@ -21,11 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gjhpu)^2f1)b5=wcktw(l$2447yd=kdm-eidzar%ynibzqs%1c'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -88,14 +87,17 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.mysql',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'edubot_db',
+        'NAME': os.getenv('Edubot_DB_NAME'),
+        'USER': os.getenv('Edubot_DB_USER'),
+        'PASSWORD': os.getenv('Edubot_DB_PASSWORD'),
+        'HOST': os.getenv('Edubot_DB_HOST'),
         # 'USER': 'root',
         # 'USER': 'jaxygzisdu',
         # 'PASSWORD': 'rUCX5lm9SSQ$kK2m',
-        'USER': 'postgres',
-        'PASSWORD': '',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '',
         # 'HOST': 'edubot-server',
-        'HOST': 'localhost',
+        # 'HOST': 'localhost',
         'PORT': '5432',
         # 'PORT': '3306',
     }
@@ -179,10 +181,7 @@ REST_FRAMEWORK = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-# OPENAI_API_KEY = "sk-None-sc7EzMnZbrwwggDjGsecT3BlbkFJ35mHjJtAra7y3t2dcJLz"
-OPENAI_API_KEY = "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"
-
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 # SIMPLE_JWT = {
 #     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),  # Access token expiry time

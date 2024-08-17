@@ -74,7 +74,8 @@ class MessageViewSet(viewsets.ModelViewSet):
         
         # Get the bot response
         bot_response = self.get_bot_response(content+"make it in uk education standard education")
-        response2 =self.paraphrase(bot_response)
+        # response2 =self.paraphrase(bot_response)
+        response2 =self.humanize_response(bot_response)
         # Save the user message
         # message = Message.objects.create(sender=user, content=content, response = bot_response)
         message = Message.objects.create(sender=user, content=content, response = response2)
