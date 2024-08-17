@@ -21,17 +21,14 @@ numpy==1.24.2
 openai==1.41.0
 oracledb==2.3.0
 Pillow==10.0.0
-Pillow==10.4.0
 protobuf==5.27.3
 psycopg==3.2.1
 psycopg2==2.9.9
 pylibmc==1.6.3
 pymemcache==4.0.0
 pyOpenSSL==23.1.1
-pyOpenSSL==24.2.1
 pywatchman==2.0.0
 PyYAML==6.0
-PyYAML==6.0.2
 Sphinx==8.0.2
 tblib==3.0.0
 thread==2.0.5
