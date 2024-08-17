@@ -18,10 +18,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python version
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
@@ -48,11 +48,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install Cython
           pip install -r requirements.txt --use-deprecated=legacy-resolver
       
       - name: Delay before deployment
-        run: sleep 60
+        run: sleep 30
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       # - name: Zip artifact for deployment
@@ -85,7 +84,7 @@ jobs:
 
       
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v5
         id: deploy-to-webapp
         with:
           app-name: 'edubot'
