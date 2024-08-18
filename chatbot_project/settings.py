@@ -92,7 +92,6 @@ DATABASES = {
         'PASSWORD': os.getenv('Edubot_DB_PASSWORD'),
         'HOST': os.getenv('Edubot_DB_HOST'),
         'PORT': '5432',
-        # 'PORT': '3306',
     }
 }
 
