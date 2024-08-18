@@ -91,13 +91,6 @@ DATABASES = {
         'USER': os.getenv('Edubot_DB_USER'),
         'PASSWORD': os.getenv('Edubot_DB_PASSWORD'),
         'HOST': os.getenv('Edubot_DB_HOST'),
-        # 'USER': 'root',
-        # 'USER': 'jaxygzisdu',
-        # 'PASSWORD': 'rUCX5lm9SSQ$kK2m',
-        # 'USER': 'postgres',
-        # 'PASSWORD': '',
-        # 'HOST': 'edubot-server',
-        # 'HOST': 'localhost',
         'PORT': '5432',
         # 'PORT': '3306',
     }
