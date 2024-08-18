@@ -13,7 +13,7 @@ env:
   RPY2_CFFI_MODE: ABI
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,10 +25,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      # - name: Create and start virtual environment
-      #   run: |
-      #     python -m venv venv
-      #     source venv/bin/activate
+      - name: Create and start virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
          
       - name: Install libxml2 and libxslt 
         run: |
