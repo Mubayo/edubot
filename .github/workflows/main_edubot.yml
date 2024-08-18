@@ -51,10 +51,14 @@ jobs:
           pip install -r requirements.txt --use-deprecated=legacy-resolver
       
       - name: Collect static files
+        env:
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         run: |
           python manage.py collectstatic --noinput
 
       - name: Run migrations
+        env:
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         run: |
           python manage.py migrate
 
@@ -101,8 +105,8 @@ jobs:
         with:
           app-name: 'edubot'
           slot-name: 'Production'
-          # publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0BF4A83B2A3E40FD85A353013A4F6604 }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0BF4A83B2A3E40FD85A353013A4F6604 }}
+          # publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           # package: django_app.zip
 # jobs:
 #   build-and-deploy:
