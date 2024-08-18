@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Python version
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
@@ -50,6 +50,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt --use-deprecated=legacy-resolver
       
+      - name: Collect static files
+        run: |
+          python manage.py collectstatic --noinput
+
+      - name: Run migrations
+        run: |
+          python manage.py migrate
+
+      - name: Create ZIP file for deployment
+        run: |
+          zip -r django_app.zip . -x "*.git*" "*/__pycache__/*" "*.md" "*.yaml" "*.yml"
+
       - name: Delay before deployment
         run: sleep 30
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
@@ -89,7 +101,9 @@ jobs:
         with:
           app-name: 'edubot'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0BF4A83B2A3E40FD85A353013A4F6604 }}
+          # publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0BF4A83B2A3E40FD85A353013A4F6604 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: django_app.zip
 # jobs:
 #   build-and-deploy:
 #     runs-on: ubuntu-latest
