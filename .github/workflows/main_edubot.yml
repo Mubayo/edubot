@@ -56,11 +56,11 @@ jobs:
         run: |
           python manage.py collectstatic --noinput
 
-      - name: Run migrations
-        env:
-          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-        run: |
-          python manage.py migrate
+      # - name: Run migrations
+      #   env:
+      #     DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      #   run: |
+      #     python manage.py migrate
 
       # - name: Create ZIP file for deployment
       #   run: |
