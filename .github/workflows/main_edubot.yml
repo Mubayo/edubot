@@ -66,8 +66,7 @@ jobs:
       #   run: |
       #     zip -r django_app.zip . -x "*.git*" "*/__pycache__/*" "*.md" "*.yaml" "*.yml"
 
-      - name: Delay before deployment
-        run: sleep 30
+     
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
@@ -96,8 +95,9 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-
-
+      
+      - name: Delay before deployment
+        run: sleep 60
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
