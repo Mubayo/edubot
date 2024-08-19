@@ -108,6 +108,7 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0BF4A83B2A3E40FD85A353013A4F6604 }}
           # publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           # package: django_app.zip
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 # jobs:
 #   build-and-deploy:
 #     runs-on: ubuntu-latest
