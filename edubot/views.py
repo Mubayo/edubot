@@ -59,7 +59,11 @@ class UserViewSet(viewsets.ModelViewSet):
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Filter messages so that only those belonging to the authenticated user are returned
+        return Message.objects.filter(sender=self.request.user)
 
     def create(self, request, *args, **kwargs):
         user = request.user
@@ -73,7 +77,7 @@ class MessageViewSet(viewsets.ModelViewSet):
         # response['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept'
         
         # Get the bot response
-        bot_response = self.get_bot_response(content+"make it in uk education standard education")
+        bot_response = self.get_bot_response(content+";; make your response in uk education standard")
         # response2 =self.paraphrase(bot_response)
         response2 =self.humanize_response(bot_response)
         # Save the user message
