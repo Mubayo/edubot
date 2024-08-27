@@ -82,19 +82,19 @@ WSGI_APPLICATION = 'edub.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('Edubot_DB_NAME'),
-        'USER': os.getenv('Edubot_DB_USER'),
-        'PASSWORD': os.getenv('Edubot_DB_PASSWORD'),
-        'HOST': os.getenv('Edubot_DB_HOST'),
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     # 'ENGINE': 'django.db.backends.mysql',
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.getenv('Edubot_DB_NAME'),
+    #     'USER': os.getenv('Edubot_DB_USER'),
+    #     'PASSWORD': os.getenv('Edubot_DB_PASSWORD'),
+    #     'HOST': os.getenv('Edubot_DB_HOST'),
+    #     'PORT': '5432',
+    # }
 }
 
 
