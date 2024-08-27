@@ -1,5 +1,0 @@
-DBNAME=edubot_db
-DBHOST=localhost
-DBUSER=postgres
-DBPASS=
-SECRET_KEY=django-insecure-gjhpu)^2f1)b5=wcktw(l$2447yd=kdm-eidzar%ynibzqs%1c
